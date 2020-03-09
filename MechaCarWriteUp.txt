@@ -1,0 +1,80 @@
+MPG Regression
+
+1. Which variables/coefficients provided a non-random amount of variance to the mpg values in the dataset?
+Both vehicle.weight and spoiler.angle proivded non-random amounts of variance because the Pr(>|t|) values were greated than 0.05.
+
+2. Is the slope of the linear model considered to be zero? Why or why not?
+The p-value of our linear regression analysis is 2.277e-11, which is much smaller than our assumed significance level of 0.05.
+Therefore, we can state that there is sufficient evidence to reject our null hypothesis, which means that the slope of our linear model is not zero.
+
+3. Does this linear model predict mpg of MechaCar prototypes effectively? Why or why not?
+It effectively predicts MPG because our "Multiple R-squared" value is .7149 which means we are correct ~71% of the time.
+We must also be cautious of "overfitting".
+
+
+Call:
+lm(formula = mpg ~ vehicle.length + vehicle.weight + spoiler.angle + 
+    ground.clearance, data = mecha_cars)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-21.3395  -4.1155  -0.2094   6.8789  17.2672 
+
+Coefficients:
+                   Estimate Std. Error t value Pr(>|t|)    
+(Intercept)      -1.076e+02  1.576e+01  -6.823 1.87e-08 ***
+vehicle.length    6.240e+00  6.609e-01   9.441 3.05e-12 ***
+vehicle.weight    1.277e-03  6.948e-04   1.837   0.0728 .  
+spoiler.angle     8.031e-02  6.656e-02   1.207   0.2339    
+ground.clearance  3.659e+00  5.394e-01   6.784 2.13e-08 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 8.853 on 45 degrees of freedom
+Multiple R-squared:  0.7032,	Adjusted R-squared:  0.6768 
+F-statistic: 26.65 on 4 and 45 DF,  p-value: 2.277e-11
+
+Suspension Coil Summary
+
+The design specifications for the MechaCar suspension coils dictate that the variance of the suspension coils must not exceed 100 pounds per inch.
+Does the current manufacturing data meet this design specification? Why or why not?
+
+Mean - 1498.78
+Median - 1500
+std.dev - 7.89
+var - 62.29
+
+The variance of the suspension coils is within specification according to the summary table. The spec call for 100
+and the var is 62.29 which is well within spec.
+
+Suspension Coil T-Test
+
+
+	One Sample t-test
+
+data:  suspension$PSI
+t = -1.8931, df = 149, p-value = 0.06028
+alternative hypothesis: true mean is not equal to 1500
+95 percent confidence interval:
+ 1497.507 1500.053
+sample estimates:
+mean of x 
+  1498.78 
+
+Assuming our significance level was the common 0.05 percent, our p-value is above our significance level.
+Therefore, we do not have sufficient evidence to reject the null hypothesis, and we would state that the two means are statistically similar.
+
+Design Your Own Study
+
+We can take a random sample of similar size cars of other brands and perfom a
+Two-Sample-t-Test to study MPG efficiency differences between the Mechacar and other brands.
+
+Is the MechaCar MPG efficiency statistically signficantly different from other brands?
+
+Our null and alternative hypothesis are as follows...
+
+H0 : There is no statistical difference between the two observed sample means.
+Ha : There is a statistical difference between the two observed sample means.
+
+The data that needs to be collected are the MPG data for both the Mecha Car as well as the brands of interest.
+A population mean must also be calculated which can be from a dataset of multiple brands of cars.
